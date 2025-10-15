@@ -1,0 +1,32 @@
+# Shared configuration for PatchTST tooling
+
+train_model:
+  DATA_DIR: rdata
+  FORECAST_HORIZON: 7
+  INPUT_SIZE: 30
+  MAX_STEPS: 20
+  CHECKPOINT_NAME: patchtst_checkpoint
+  CHECKPOINT_PATH: patchtst_checkpoint.ckpt
+  TRAIN_LAST_N_DAYS: 90
+  INCLUDE_TICKERS:
+    - ERX
+
+time_forecast:
+  USE_GPU: 1
+  HORIZON: 7
+  CHECKPOINT_PATH: patchtst_model/
+  TICKER: ERX
+  TARGET_COLUMN: y
+  DATA_PATH: rdata/ERX_daily.csv
+
+featureselect:
+  TOP_N: 5
+  MIN_OVERLAP: 60
+  COMBO_MAX_SIZE: null
+  EARLY_STOP_PATIENCE: 20
+  VAL_CHECK_STEPS: 1
+  BATCH_SIZE: 32
+  LEARNING_RATE: 0.001
+  SEED: 42
+  SILENT: false
+  EXPORT_SUMMARY: null

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patchtst-featureselect"
+version = "0.1.0"
+description = "Feature selection utility for PatchTST financial time-series models."
+readme = "README.md"
+authors = [{ name = "Eeshan" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "torch>=2.0",
+  "neuralforecast>=1.6.4",
+  "pyyaml>=6.0",
+  "scipy>=1.10",
+]
+
+[project.scripts]
+patchtst-featureselect = "patchtst_featureselect.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/eeshan/patchtst-featureselect"
+Source = "https://github.com/eeshan/patchtst-featureselect"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
